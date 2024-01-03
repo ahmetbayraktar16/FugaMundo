@@ -58,6 +58,7 @@
     },
     "dotnet.defaultSolution": "FugaMundo.sln",
     "cSpell.words": [
-        "Behaviour"
+        "Behaviour",
+        "Rigidbody"
     ]
 }
