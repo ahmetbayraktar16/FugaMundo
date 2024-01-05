@@ -55,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed)
         {
             rb.velocity += new Vector2(0f, jumpSpeed);
+            anim.SetTrigger("Jumping");
         }
-        
     }
     void OnMove(InputValue value)
     {
