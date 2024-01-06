@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Platform")))
         {
             return;
         }
