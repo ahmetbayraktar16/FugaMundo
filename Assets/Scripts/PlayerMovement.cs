@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(2f, 10f);
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
+
     Vector3 deathRotation = new Vector3(0, 0, 90);
     bool playerHasHorizontalSpeed;
     bool isAlive = true;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         playerTransform = GetComponent<Transform>();
+        gun = GetComponent<Transform>();
     }
 
     void Update()
@@ -52,6 +56,12 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = playerVelocity;
         anim.SetBool("isRunning", playerHasHorizontalSpeed);
     }
+    void OnFire(InputValue value)
+    {
+        if (!isAlive) { return; }
+
+        Instantiate(bullet, gun.position, transform.rotation);
+    }
 
     void OnJump(InputValue value)
     {
@@ -77,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        if (capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazard")))
         {
             isAlive = false;
             anim.SetTrigger("takeOff");
