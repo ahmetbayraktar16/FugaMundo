@@ -19,7 +19,7 @@ TagManager:
   - Background
   - Hazard
   - Gun
-  - 
+  - Exit
   - 
   - 
   - 
@@ -51,12 +51,15 @@ TagManager:
   - name: Platforms
     uniqueID: 506696589
     locked: 0
+  - name: Exit
+    uniqueID: 4015635915
+    locked: 0
   - name: Enemy
     uniqueID: 2288995867
     locked: 0
-  - name: Player
-    uniqueID: 663022907
-    locked: 0
   - name: Gun
     uniqueID: 2524815469
+    locked: 0
+  - name: Player
+    uniqueID: 663022907
     locked: 0
