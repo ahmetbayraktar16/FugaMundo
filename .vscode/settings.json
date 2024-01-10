@@ -59,6 +59,7 @@
     "dotnet.defaultSolution": "FugaMundo.sln",
     "cSpell.words": [
         "Behaviour",
+        "Dont",
         "Mathf",
         "Rigidbody"
     ]

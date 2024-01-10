@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("takeOff");
             playerTransform.rotation = Quaternion.Euler(deathRotation);
             rb.velocity = deathKick;
+            FindObjectOfType<GameSession>().PlayerProcessDeath();
         }
     }
 }
