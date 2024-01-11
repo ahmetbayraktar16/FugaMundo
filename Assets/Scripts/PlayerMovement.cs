@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(2f, 10f);
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip fireSFX;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
 
     Vector3 deathRotation = new Vector3(0, 0, 90);
     bool playerHasHorizontalSpeed;
     bool isAlive = true;
-
     Transform playerTransform;
     CapsuleCollider2D capsuleCollider;
     Animator anim;
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isAlive) { return; }
 
         Instantiate(bullet, gun.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(fireSFX, Camera.main.transform.position);
     }
 
     void OnJump(InputValue value)
@@ -74,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (value.isPressed)
         {
+            AudioSource.PlayClipAtPoint(jumpSFX, Camera.main.transform.position);
             rb.velocity += new Vector2(0f, jumpSpeed);
             anim.SetTrigger("Jumping");
         }

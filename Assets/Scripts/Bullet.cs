@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] AudioClip bulletSFX;
     [SerializeField] float bulletSpeed = 20f;
     float xSpeed;
 
@@ -25,6 +26,7 @@ public class Bullet : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
+            AudioSource.PlayClipAtPoint(bulletSFX, Camera.main.transform.position);
             Destroy(other.gameObject);
         }
         Destroy(gameObject);
